@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+/* 
+단위
+
+❗❗ Viewport 보이는 화면
+vw ==> viewport의 넓이
+(ex. 50vw  ==> viewport(보이는 화면) 넓이의 50%)
+vh ==> viewport의 높이
+(ex. 50vh  ==> viewport(보이는 화면) 높이의 50%) 
+
+rem  ==>  root의 단위에 따라가는 단위 (html)
+em  ==>  내가 가진 단위에 따라가는 단위
+
+*/
+
+/* 공통 header */
+header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 25px;
+    height: 50px; 
+    background-color: #7E57C2; 
+}
+header h2 {line-height: 50px; font-size: 17px; color: #fff;}
+
+
+/*  👉👉👉👉👉👉👉👉  welcome */
+.welcome {
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh;
+    background: url(../images/welcome_bg.png) no-repeat center top ; /* top/cover */
+    background-size: cover;
+    /* ❗❗ 위와 같이 top/cover 로도 사용할 수 있으나, 단독으로 사용도 가능하다.
+    ❗❗ 배경 이미지 비율을 그대로 늘리면서 가로/세로중 긴 부분까지 커지면서 다 덮는다. ❗❗ 
+
+    ❗❗ background-size: contain;
+    cover와 달리, 너비의 가로/세로중 짧은 한쪽만 덮는것이다.
+    즉, 화면을 다 덮지 못해서 cover를 많이 쓴다. ❗❗ */
+
+    padding-top: 134px;
+    /* 큰 영역의 자식들의 위를 잡을땐 부모를 이용하여 padding으로 밀어준다. */
+}
+
+.welcome .container {}
+
+.welcome h1 {
+    height: 52px;
+    color: #fff; 
+    font-size: 32px; 
+    line-height: 52px;
+    padding-bottom: 127px;
+}
+.welcome p {
+    margin: 0 auto;
+    width: 100%; height: 68px; 
+    max-width: 300px; 
+    font-size: 21px; 
+    color: #fff; 
+    line-height: 34px;
+}
+
+.welcome .sign_links {
+    position: absolute; bottom: 40px;
+    margin: 0 auto;
+    width: calc(100% - 50px); /* 컴퓨터가 계산해주는 수식, 50px은 좌우25px을 합한 값. */
+
+}
+.welcome .sign_links .btn:first-child {margin-bottom: 25px;}
+
+
+/*  👉👉👉👉👉👉👉👉 sign_In */
+
+.sign_In{
+    height: 100vh;
+    background: url(../images/sign_in_bg.jpg) no-repeat center top/cover;
+    box-sizing: border-box;
+    padding-top: 92px;
+}
+.main_tt {
+    height: 52px;
+    color: #fff; 
+    font-size: 32px; 
+    line-height: 52px;
+}
+.sign_In .main_tt {margin-bottom: 10px;}
+.sign_In .page {margin-bottom: 116px; display: block; color: #fff;}
+
+[class^="sign"] form label {display: none;}
+[class^="sign"] form input {
+    box-sizing: border-box;
+    padding-left: 20px; 
+    width: 100%; height: 50px;
+    color: #fff;
+    background-color: rgba(238,238,238,0.4);
+    border: none;
+    outline: none; /* 클릭시 input 안에 border 라인 생기는 선을 뜻함. */
+}
+[class^="sign"] form input::placeholder {color: #fff; font-size: 16px;}
+
+[class^="sign"] form p:first-child {margin-top: 116px;}
+[class^="sign"] form p:not(last-child) { /* not : 막내 자식이 아닌것을 부른다. */
+    margin-bottom: 25px;
+}
+
+[class^="sign"] .signin_links {margin-top: 20px;}
+[class^="sign"] .signin_links a {
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-size: 13px; line-height: 13px;
+}
+[class^="sign"] .signin_links a:first-child {
+    margin-bottom: 25px;
+}
+
+
+
+/* ❗❗ 속성으로 불러내기
+[attr]  ==> 'attr' 속성이 포함된 요소를 선택하는 방법 
+[attr="val"]  ==> 'attr' 속성이 정확하게 val과 일치하는 요소를 선택한다. 
+[attr^="val"] ==> 'attr' 속성의 값이 val로 시작하는 되는 요소를 선택한다.
+[attr$="val"] ==> 'attr' 속성의 값이 val로 끝나는 요소를 선택한다.
+[attr~="val"] ==> 'attr' 속성의 값이 val이 포함되는 요소를 선택한다.
+[attr*="val"] ==> 'attr' 속성의 값이 val이 포함되는 요소를 선택한다. ❗❗ 위(~)와 속성이 같다.
+[attr|="val"] ==> 'attr' 속성의 값이 정확하게 val이나 val으로 시작하는 요소를 선택한다. 
+클래스명중에서 제일 먼저 나와야 한다.
+*/
+
+/* 
+div[class]{background-color: red;}
+
+[class="container"]{border: 5px solid blue;}
+~은 단어에서 _를 인식한다. _로 연결한 단어를 하나로 취급한다.
+
+[attr^="sign"]{border: 5px solid rgb(238,5,228);}
+[attr$="tt"]{border: 5px solid rgb(0,0,0);}
+
+[attr~="links"]{opacity: 20%;}
+[attr*="tt"]{border: 5px solid rgb(0,0,0);}
+*은 단어에서 _를 인식하지 않는다.
+
+[attr|="tt"]{background-color: blue;}
+|는 엔터 위에 \ + shift를 같이 누른것이다. ||||| 
+*/
+
+/* 👉👉👉👉👉👉👉👉 sign_Up */
+
+.sign_Up{
+    padding-top: 92px;
+    box-sizing: border-box;
+    height: 100vh;
+    background: url(../images/sign_up_bg.jpg) no-repeat center/cover;
+}
+.sign_Up .container a i {color: #fff;}
+.sign_Up .main_tt {margin-bottom: 10px;}
+.sign_Up form {margin-top: 60px;}
+.sign_Up .main_tt .signin_links {margin-top: 25px;}
+
+/* 👉👉👉👉👉👉👉👉 shop */
+.shop {background-color: #fff; overflow: hidden; background-color: #fff; height: 100vh;}
+
+.Top_Product {padding: 25px 12vw 0 0; position: relative;}
+
+.Top_Product img {width: 100%;}
+
+.Top_Product .info {
+    position: absolute; left: 50px; right: 0; bottom: 0; 
+    background-color: #fff; 
+    padding: 10px 0 10px 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
+
+/* ❗❗ 그림자
+글자 text-shadow: ;
+영역 box- shadow: x y (blur spread) color ; ❗ blur, spread 값은 생략이 가능하다.
+*/
+
+.Top_Product .info h2 {font-size: 18px; line-height: 29px; color: #757575; margin-bottom: 5px;}
+.Top_Product .info .desc {display: flex; justify-content: space-between;}
+.Top_Product .info .desc .price {font-size: 13px; line-height: 21px; color: #7E57C2;}
+.Top_Product .info .desc .rate {margin-right: 45px;}
+.Top_Product .info .desc .rate i {color: #7E57C2; font-size: 13px; margin-right: 5px;}
+.Top_Product .info .desc .rate i:last-child {margin-right: 0;}
+
+.shop_product {position: relative; margin-top: 74px; left: 25px; width: 120%; height: 380px;}
+.shop_product .product_list img {width: 100%;}
+.shop_product .product_list .slick-slide {padding-right: 25px;}
+.shop_product .product_list .slick-track {}
+
+.shop_product .product_list h3 {font-size: 15px; line-height: 25px; color: #757575; margin-top: 15px;}
+.shop_product .product_list h4 {font-size: 13px; line-height: 21px; color: #7E57C2; margin-top: 5px;}
+
+.shop .page {color: #222; position: absolute; top: 59px; left: 10px; font-size: 20px; z-index: 100;}
+
+
+/* 👉👉👉👉👉👉👉👉 shop_Categories */
+
+.shopCategories {position: relative;}
+.shopCategories .slick-slider {position: relative;}
+.shop_Categories .slick-slide {height: 50vw; min-height: 200px; max-height: 400px; }
+.shop_Categories .slick-slide img {width: 100%; min-height: 200px; min-width: 375px;}
+.shop_Categories .slick-dots {
+    display: flex; gap: 10px; justify-content: center; width: 100%;
+    position: absolute; bottom: 15px;
+}
+.shop_Categories .slick-dots li {width: 13px; height: 13px; border:3px solid #7E57C2; border-radius: 50%; box-sizing: border-box;}
+.shop_Categories .slick-dots li button {display: none;}
+.shop_Categories .slick-dots li.slick-active {background-color: #7E57C2;}
+
+.shop_wrap {padding: 25px 25px 0; background-color: #fff;}
+.shop_wrap ul {display: flex; gap: 25px; flex-wrap: wrap;}
+.shop_wrap ul li {width: 45%; flex-grow: 1;}
+
+.shop_wrap ul li img {width: 100%; display: block;}
+.shop_wrap ul li h4 {font-size: 18px; color: #757575; margin-top: 15px;}
+.shop_wrap ul li p {font-size: 13px; color: #757575; margin-top: 1px;}
+
+.shopCategories .page {color: #FFF; position: absolute; top: 59px; right: 10px; font-size: 20px; z-index: 100;}
+
+
+/* 👉👉👉👉👉👉👉👉 single_Product */
+.singleProduct {height: 100vh; overflow: hidden; background-color: #fff;}
+.singleProduct main {padding: 25px 25px 0;}
+
+.singleProduct main h2 {font-size: 18px; color: #757575; line-height: 29px;}
+.singleProduct main .rate {margin-bottom: 20px;}
+.singleProduct main .rate i {font-size: 13px; color: #7e57c2; line-height: 21px;}
+
+.single_Product {width: 190%;}
+.single_Product img {width: 100%;}
+
+.single_Product .slick-slide {padding-right: 25px;}
+
+.single_Product .slick-dots {display: flex; gap: 5.38px; margin-top: 17px; position: absolute; right:299px;}
+.single_Product .slick-dots li {
+    width: 7px; height: 7px; border-radius: 50%; 
+    border: 1px solid #7E57C2;
+}
+.single_Product .slick-dots li.slick-active {background-color: #7E57C2;}
+.single_Product .slick-dots li button {display: none;}
+
+.details_info { margin-top: 18px;}
+.details_info h3 {font-size: 26px; color: #757575; line-height: 26px;}
+.details_info p {font-size: 13px; color: #757575; line-height: 21px; margin-top: 10px;}
+
+.details_info form {margin-top: 20px;}
+.details_info form label {display: none;}
+.details_info form select {
+    width: 100px; height: 25px; 
+    border: 1px solid #999; 
+    font-size: 10px; line-height: 23px; color: #757575; 
+    margin-right: 25px; 
+    text-transform: capitalize; /* 맨 앞 문자를 대문자로 바꿔준다. */
+}
+
+.details_info form .btn {
+    outline: none; 
+    border: 0; 
+    position: absolute; bottom: 0px; left: 25px; width:calc(100% - 50px)
+}

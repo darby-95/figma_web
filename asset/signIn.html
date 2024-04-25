@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion::signIn</title>
+
+    <!-- css (❗순서가 중요. 가장 아래쪽에 있을 수록 힘이 쎄다.) -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+
+<body>
+    <div class="sign_In">
+        <div class="container">
+            <h2 class="main_tt">Sign in</h2>
+            <a href="./index.html" class="page"><i class="fas fa-chevron-left"></i></a>
+
+            <form action="#">
+                <!-- id/pw를 적고 버튼을 눌렀을때 action에 적힌 링크로 해당 정보가 전송된다. -->
+
+                <p>
+                    <label for="user_email">Email</label>
+                    <input type="email" id="user_email" placeholder="Email"> <!-- placeholder : 박스안 글자 -->
+                    <!-- ❗❗ label의 for와 input의 id가 동일해야 연결된다.
+                연결하게 되면 email 이라는 글자를 클릭해도 input을 누른것과 같은 효과가 난다.
+                반드시 class가 아닌 id를 사용해야만 연결이 되니 주의 ❗❗ -->
+                </p>
+                <p>
+                    <label for="user_pw">Password</label>
+                    <input type="password" id="user_pw" placeholder="Password">
+                </p>
+                <p>
+                    <input type="submit" value="Sign In" class="btn">
+                    <!-- ❗❗ value 안에 글자를 적으면 박스안 글자가 적힌다. -->
+                </p>
+            </form>
+
+            <p class="signin_links">
+                <a href="./signUp.html">sign Up</a>
+                <a href="#">Forgot Password?</a>
+            </p>
+        </div> <!-- end containder -->
+    </div> <!-- end sign_In -->
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion::signUp</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- fontawersome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+</head>
+
+<body>
+    <div class="sign_Up">
+        <div class="container">
+            <h2 class="main_tt">Sign Up</h2>
+            <a href="./index.html" class="page"><i class="fas fa-chevron-left"></i></a>
+            
+            <form action="#">
+                <p>
+                    <label for="user_name">Name</label>
+                    <!-- ❗❗ 무조건 id로 for와 연결 -->
+                    <input type="text" id="user_name" placeholder="Name" name="name">
+                </p>
+                <p>
+                    <label for="user_email">Email</label>
+                    <!-- ❗❗ 무조건 id로 for와 연결 -->
+                    <input type="email" id="user_email" placeholder="Email" name="email">
+                </p>
+                <p>
+                    <label for="user_pw">Password</label>
+                    <!-- ❗❗ 무조건 id로 for와 연결 -->
+                    <input type="password" id="user_pw" placeholder="Password" name="pw">
+                </p>
+                <p>
+                    <label for="user_pwcf">Password</label>
+                    <!-- ❗❗ 무조건 id로 for와 연결 -->
+                    <input type="password" id="user_pwcf" placeholder="Password conform" name="pwcf">
+                </p>
+                <p>
+                    <input type="submit" value="Sign In" class="btn">
+                </p>
+            </form>
+            <p class="signin_links">
+                <a href="./signIn.html">sign In Instead</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
